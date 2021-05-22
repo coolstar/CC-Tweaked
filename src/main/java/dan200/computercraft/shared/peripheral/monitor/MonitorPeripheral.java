@@ -54,15 +54,15 @@ public class MonitorPeripheral extends TermMethods implements IPeripheral
      * Set the scale of this monitor. A larger scale will result in the monitor having a lower resolution, but display
      * text much larger.
      *
-     * @param scaleArg The monitor's scale. This must be a multiple of 0.5 between 0.5 and 5.
+     * @param scaleArg The monitor's scale. This must be a multiple of 0.05 between 0.05 and 5.
      * @throws LuaException If the scale is out of range.
      * @see #getTextScale()
      */
     @LuaFunction
     public final void setTextScale( double scaleArg ) throws LuaException
     {
-        int scale = (int) (LuaValues.checkFinite( 0, scaleArg ) * 2.0);
-        if( scale < 1 || scale > 10 ) throw new LuaException( "Expected number in range 0.5-5" );
+        int scale = (int) (LuaValues.checkFinite( 0, scaleArg ) * 20.0);
+        if( scale < 1 || scale > 100 ) throw new LuaException( "Expected number in range 0.05-5" );
         getMonitor().setTextScale( scale );
     }
 
@@ -75,7 +75,7 @@ public class MonitorPeripheral extends TermMethods implements IPeripheral
     @LuaFunction
     public final double getTextScale() throws LuaException
     {
-        return getMonitor().getTextScale() / 2.0;
+        return getMonitor().getTextScale() / 20.0;
     }
 
     @Override

@@ -30,7 +30,7 @@ public class ServerMonitor extends ServerTerminal
         int oldWidth = oldTerm == null ? -1 : oldTerm.getWidth();
         int oldHeight = oldTerm == null ? -1 : oldTerm.getHeight();
 
-        double textScale = this.textScale * 0.5;
+        double textScale = this.textScale * 0.05;
         int termWidth = (int) Math.max(
             Math.round( (origin.getWidth() - 2.0 * (TileMonitor.RENDER_BORDER + TileMonitor.RENDER_MARGIN)) / (textScale * 6.0 * TileMonitor.RENDER_PIXEL_SCALE) ),
             1.0
